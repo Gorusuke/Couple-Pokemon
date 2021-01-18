@@ -5,7 +5,7 @@ import './Cartas.css'
 
 const Card = ({pokemon}) => {
     
-    const {image, name} = pokemon;
+    const {image, name} = pokemon.image;
     const [isFlipped, setIsFlipped] = useState(false)
 
     const handleClick = () => {

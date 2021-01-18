@@ -5,22 +5,43 @@ import './Tablero.css'
 
 const Tablero = () => {
 
+    const [barajas, setBarajas] = useState([]);
     const [baraja, setBaraja] = useState([]);
     // const [firstCard, setFirstCard] = useState({});
     // const [secondCard, setSecondCard] = useState({});
     
     const shuffleArray = (deck) => {
-        for (let i = deck.length - 1; i > 0; i--) {
+        let cartas = [];
+
+        while (cartas.length < 40) {
+            const index = Math.floor(Math.random() * deck.length)
+            const carta = {
+                image: deck.splice(index, 1)[0],
+                // wasCorrect: false
+            };
+    
+            cartas.push(carta)
+            cartas.push({...carta});
+        }
+    
+        for (let i = cartas.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * i);
-            let temp = deck[i];
-            deck[i] = deck[j];
-            deck[j] = temp;
-        }        
+            let temp = cartas[i];
+            cartas[i] = cartas[j];
+            cartas[j] = temp;
+        }
+        // console.info(cartas)
+        setBaraja(cartas)
+        // return cartas;
     }
+
+
+    console.info(baraja.image)
+    console.info(barajas)
 
     useEffect(() => {
         shuffleArray(images)
-        setBaraja(images);
+        setBarajas(images);
     }, [])
 
     // const flipCard = () => {
