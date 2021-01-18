@@ -1,0 +1,35 @@
+header{
+    width: 1140px;
+    height: 50px;
+    border: 1px solid white;
+    padding: 0 20px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.button-reset{
+    color: #ff0000;
+    padding: 5px 10px;
+    background-color: transparent;
+    font-size: 16px;
+    border: 1px solid #ff0000;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.title{
+    font-size: 30px;
+    color: #fff;
+}
+
+.try{
+    font-size: 20px;
+    margin-top: 5px;
+    color: #ff0000;
+}
+

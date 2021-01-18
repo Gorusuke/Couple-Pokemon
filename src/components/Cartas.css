@@ -1,0 +1,33 @@
+.carta{
+    width: 100px;
+    height: 100px;
+    margin: 8px 2px;
+}
+
+.ReactFlipCard{
+    width: 100%;
+    height: 100%;
+}
+
+.front{
+    width: 100px;
+    height: 100px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png');
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-color: #00b7ff;
+}
+
+.back{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(240, 240, 240, .8);
+}
+
+.img{
+    width: 100%;
+}
