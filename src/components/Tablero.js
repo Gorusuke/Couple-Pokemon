@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
+import ContruirBaraja from '../Hooks/ConstruirBaraja';
 import './Tablero.css'
 
-const Tablero = ({baraja, parejaSeleccionada, seleccionarCarta}) => {
+const Tablero = () => {
+
+    const [baraja, setBaraja] = useState([]);
+
+    useEffect(() => {
+        setBaraja(ContruirBaraja());
+    }, [])
     
     return (
         <div className="table">
-            {baraja.map((pokemon, i) => {
-                const estaSiendoComparada = parejaSeleccionada.indexOf(pokemon) > -1;
-                return <Card 
-                    key={i} pokemon={pokemon}
-                    estaSiendoComparada={estaSiendoComparada}
-                    seleccionarCarta={() => seleccionarCarta(pokemon)}
-                    wasCorrect={pokemon.wasCorrect}
-                />})
+            {baraja.map((pokemon, i) => 
+                <Card 
+                    key={i} 
+                    pokemon={pokemon}
+                />)
             }
         </div>
     );
