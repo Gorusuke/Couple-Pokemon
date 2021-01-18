@@ -1,19 +1,24 @@
-import React from 'react';
+import React, {useState } from 'react';
 import FlipCard from 'react-flipcard-2'
 import './Cartas.css'
 
 
 const Card = ({pokemon}) => {
     
-    const {image} = pokemon;
+    const {image, name} = pokemon;
+    const [isFlipped, setIsFlipped] = useState(false)
+
+    const handleClick = () => {
+        setIsFlipped(true)
+    }
 
     return (
-        <div className="carta">
+        <div className="carta" onClick={handleClick}>
             <FlipCard
-                // flipped={estaSiendoComparada || wasCorrect}
-                // disabled={true}
+                flipped={isFlipped}
+                disabled={true}
             >
-                <div className="front"><h3>{pokemon.image.slice(-6)}</h3></div>
+                <div className="front">{name}</div>
                 <div className="back">
                     <img src={image} className="img" alt="nombre"/>
                 </div>
