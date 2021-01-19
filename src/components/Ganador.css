@@ -1,0 +1,46 @@
+.container{
+    height: 70vh;
+    width: 50vw;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.modal{
+    width: 100%;
+
+}
+
+.img{
+    max-width: 100%;
+}
+
+.text{
+    margin-top: .5rem 0;
+    padding-bottom: .5rem;
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+    border-bottom: 2px solid black;
+}
+
+.button{
+    color: black;
+    position: absolute;
+    right: 15px;
+    bottom: 9px;
+    padding: 8px 10px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.button:hover{
+    background-color: rgb(50, 50, 50);
+    color: white;
+    cursor: pointer;
+}
