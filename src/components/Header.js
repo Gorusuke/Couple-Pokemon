@@ -1,14 +1,17 @@
 import React from 'react';
 import './Header.css'
 
-const Header = () => {
+const Header = ({intentos}) => {
     return (
         <header>
             <div>
-                <button className="button-reset">Reiniciar</button>
+                <button
+                    onClick={() => window.location.reload()}
+                    className="button-reset"
+                >Reiniciar</button>
             </div>
             <div className="title">React - Parejas</div>
-            <div className="try">Intentos: {0}</div>
+            <div className="try">Intentos: <b>{intentos}</b></div>
         </header>
         
     );

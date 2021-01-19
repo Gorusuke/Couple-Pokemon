@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "lodash.shuffle": "^4.2.0",
     "react": "^17.0.1",
+    "react-card-flip": "^1.0.11",
     "react-dom": "^17.0.1",
     "react-flipcard-2": "^0.3.2",
     "react-scripts": "4.0.0",

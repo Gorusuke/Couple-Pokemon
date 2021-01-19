@@ -2,22 +2,29 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import {images} from '../Info/content'
 import './Tablero.css'
+import Ganador from './Ganador';
 
-const Tablero = () => {
+const Tablero = ({intentos, setIntentos}) => {
 
-    const [barajas, setBarajas] = useState([]);
+    // const [barajas, setBarajas] = useState([]);
     const [baraja, setBaraja] = useState([]);
-    // const [firstCard, setFirstCard] = useState({});
-    // const [secondCard, setSecondCard] = useState({});
+    const [firstCard, setFirstCard] = useState({});
+    const [secondCard, setSecondCard] = useState({});
+    const [unflippedCards, setUnflippedCards] = useState([]);
+    const [disabledCards, setDisabledCards] = useState([]);
+    const [aciertos, setAciertos] = useState(0)
+    const [win, setWin] = useState(false)
     
+
+    // console.info()
+
     const shuffleArray = (deck) => {
         let cartas = [];
 
         while (cartas.length < 40) {
             const index = Math.floor(Math.random() * deck.length)
             const carta = {
-                image: deck.splice(index, 1)[0],
-                // wasCorrect: false
+                image: deck.splice(index, 1)[0]
             };
     
             cartas.push(carta)
@@ -30,33 +37,80 @@ const Tablero = () => {
             cartas[i] = cartas[j];
             cartas[j] = temp;
         }
-        // console.info(cartas)
+
         setBaraja(cartas)
+        return cartas;
         // return cartas;
     }
 
-
-    console.info(baraja.image)
-    console.info(barajas)
-
     useEffect(() => {
-        shuffleArray(images)
-        setBarajas(images);
+        shuffleArray(images);
     }, [])
 
-    // const flipCard = () => {
-    //     console.info('hola')
-    //     if(!firstCard.image){
-    //         setFirstCard()
-    //     }
-    // }
-    
+    useEffect(() => {
+        checkForMatch();
+        acierto();
+    }, [secondCard])
+
+    const cardFlip = (name, number) => {
+        if(firstCard.name === name && firstCard.number === number) return 0;
+        if(!firstCard.name) setFirstCard({name, number})
+        else if(!secondCard.name) setSecondCard({name, number})
+        return 1;
+    }
+
+    const checkForMatch = () => {
+        if(firstCard.name && secondCard.name){
+            setIntentos(intentos + 1)
+            const match = firstCard.name === secondCard.name;
+            match ? disabledCard() : unflipCard();
+        }
+    }
+
+    const acierto = () => {
+        if(firstCard.name && secondCard.name){
+            const hola = firstCard.name === secondCard.name;
+            if(hola) setAciertos(aciertos + 1) 
+            if(aciertos === 19) setWin(true)
+        }
+    }
+
+    const disabledCard = () => {
+        setDisabledCards([firstCard.number, secondCard.number])
+        resetCards();
+    } 
+
+    const unflipCard = () => {
+        setUnflippedCards([firstCard.number, secondCard.number])
+        resetCards();
+    }
+
+    const resetCards = () => {
+        setFirstCard({});
+        setSecondCard({});
+    }
+
+    const playAgain = () => {
+        window.location.reload();
+        setWin(false)
+    }
+
     return (
         <div className="table">
-            {baraja.map((pokemon, i) => 
+            {win 
+            ?  <Ganador 
+                    intentos={intentos}
+                    playAgain={() => playAgain()}
+                />
+            : null}
+            {baraja.map((pokemon, index) => 
                 <Card 
-                    key={i} 
+                    key={index} 
+                    number={index}
                     pokemon={pokemon}
+                    flipCard={cardFlip}
+                    unflippedCards={unflippedCards}
+                    disabledCards={disabledCards}
                 />)
             }
         </div>
