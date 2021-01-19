@@ -1,46 +1,66 @@
-.container{
-    height: 70vh;
-    width: 50vw;
+.modal{
+    width: 55vw;
     background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 10000000;
 }
 
-.modal{
+.image{
     width: 100%;
-
 }
 
 .img{
-    max-width: 100%;
+    width: 100%;
+}
+
+.image::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    clip-path: polygon(100% 0, 0% 0%, 0% 100%);
 }
 
 .text{
     margin-top: .5rem 0;
-    padding-bottom: .5rem;
+    padding: 0 1rem .5rem 1rem;
     text-align: center;
     color: black;
     font-size: 1.5rem;
     border-bottom: 2px solid black;
 }
 
+.text b{
+    color: red
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+}
+
 .button{
     color: black;
-    position: absolute;
-    right: 15px;
-    bottom: 9px;
+    align-self: flex-end;
+    margin: 8px 20px;
     padding: 8px 10px;
     font-weight: bold;
     background-color: white;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .button:hover{
-    background-color: rgb(50, 50, 50);
+    background-color: rgba(50, 50, 50, 0.7);
     color: white;
     cursor: pointer;
+}
+
+.button-2{
+    margin-right: 0;
+    padding: 8px 20px;
 }

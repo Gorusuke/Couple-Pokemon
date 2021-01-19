@@ -2,7 +2,7 @@ import React from 'react';
 import './Ganador.css';
 
 
-const Ganador = ({intentos, playAgain}) => {
+const Ganador = ({intentos, playAgain, mostrarFormulario}) => {
     return (
         <div className="container">
             <div className="modal">
@@ -12,10 +12,25 @@ const Ganador = ({intentos, playAgain}) => {
                 <div className="text-container">
                     <p className="text">Tu numero de intentos fueron <b>{intentos}</b></p>
                 </div>
-                <button 
-                    onClick={playAgain}
-                    className="button"
-                >Volver a Jugar</button>
+                <div className="buttons-container">
+                    <div>
+                        <button 
+                            onClick={mostrarFormulario}
+                            className="button button-2"
+                        >Guardar Puntaje</button>
+                    </div>
+                    <div>
+                        <button 
+                            // onClick={playAgain}
+                            className="button button-2"
+                        >Ranking</button>
+                        <button 
+                            onClick={playAgain}
+                            className="button"
+                        >Volver a Jugar</button>
+                    </div>
+                    
+                </div>
             </div>
         </div>
     )

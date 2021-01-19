@@ -15,12 +15,14 @@ const Card = ({number, pokemon, flipCard, unflippedCards, disabledCards, win}) =
         if(unflippedCards.includes(number)){
             setTimeout(() => setIsFlipped(false), 1000);
         }
+        // eslint-disable-next-line
     }, [unflippedCards])
 
     useEffect(() => {
         if(disabledCards.includes(number)){
             setHasEvent(false)
         }
+        // eslint-disable-next-line
     }, [disabledCards])
 
     const handleClick = () => {
@@ -36,7 +38,7 @@ const Card = ({number, pokemon, flipCard, unflippedCards, disabledCards, win}) =
                 isFlipped={isFlipped}
                 // disabled={true}
             >
-                <div className="front"></div>
+                <div className="front">{name}</div>
                 <div className="back">
                     <img src={image} className="img" alt={name}/>
                 </div>

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import {images} from '../Info/content'
 import './Tablero.css'
-import Ganador from './Ganador';
 
-const Tablero = ({intentos, setIntentos}) => {
+
+const Tablero = ({intentos, setIntentos, setWin, setSpinner}) => {
 
     // const [barajas, setBarajas] = useState([]);
     const [baraja, setBaraja] = useState([]);
@@ -12,9 +12,7 @@ const Tablero = ({intentos, setIntentos}) => {
     const [secondCard, setSecondCard] = useState({});
     const [unflippedCards, setUnflippedCards] = useState([]);
     const [disabledCards, setDisabledCards] = useState([]);
-    const [aciertos, setAciertos] = useState(0)
-    const [win, setWin] = useState(false)
-    
+    const [aciertos, setAciertos] = useState(0) 
 
     // console.info()
 
@@ -44,12 +42,15 @@ const Tablero = ({intentos, setIntentos}) => {
     }
 
     useEffect(() => {
-        shuffleArray(images);
+        if(shuffleArray(images)){
+            setSpinner(false)
+        }
     }, [])
 
     useEffect(() => {
         checkForMatch();
         acierto();
+        // eslint-disable-next-line
     }, [secondCard])
 
     const cardFlip = (name, number) => {
@@ -90,19 +91,9 @@ const Tablero = ({intentos, setIntentos}) => {
         setSecondCard({});
     }
 
-    const playAgain = () => {
-        window.location.reload();
-        setWin(false)
-    }
 
     return (
         <div className="table">
-            {win 
-            ?  <Ganador 
-                    intentos={intentos}
-                    playAgain={() => playAgain()}
-                />
-            : null}
             {baraja.map((pokemon, index) => 
                 <Card 
                     key={index} 
@@ -113,6 +104,7 @@ const Tablero = ({intentos, setIntentos}) => {
                     disabledCards={disabledCards}
                 />)
             }
+            
         </div>
     );
 }
