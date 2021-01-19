@@ -1,0 +1,56 @@
+.container-ranking{
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.container-formulario h2{
+    margin-bottom: 25px;
+    text-align: center
+}
+
+.container-input{
+    display: flex;
+}
+
+.container-input label {
+    font-size: 1.2rem;
+}
+
+.container-input input{
+    padding: 5px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.container-formulario p {
+    margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.container-formulario p b{
+    color: red;
+}
+
+.ranking-container{
+    display: flex;
+    margin-top: 50px;
+    margin-right: -20px;
+    justify-content: flex-end;
+}
+
+.button-ranking{
+    color: black;
+    padding: 8px 20px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
