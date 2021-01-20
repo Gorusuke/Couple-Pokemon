@@ -37,7 +37,7 @@ const Tablero = ({intentos, setIntentos, setWin, setSpinner}) => {
         }
 
         setBaraja(cartas)
-        return cartas;
+        // return cartas;
         // return cartas;
     }
 

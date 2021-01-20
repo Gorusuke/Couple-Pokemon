@@ -54,3 +54,9 @@
     border: 1px solid black;
     border-radius: 8px;
 }
+
+.button-ranking:hover{
+    background-color: rgba(50, 50, 50, 0.7);
+    color: white;
+    cursor: pointer;
+}

@@ -1,16 +1,15 @@
 import React from 'react';
+import './Ranking.css'
 
 const ListaRankings = ({arreglo}) => {
 
-    // const {nombre, intentos} = arreglo;
-    console.info(arreglo)
+    const {nombre, intentos} = arreglo;
 
-    // console.info(nombre)
-    // console.info(intentos)
+    // console.info(arreglo.nombre)
 
     return (
         <div>
-            {/* <li>{nombre}{intentos}</li> */}
+            <li className="winner-container">{nombre}<b>{intentos}</b></li>
         </div>
     );
 }

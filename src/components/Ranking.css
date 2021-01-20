@@ -1,6 +1,6 @@
 .ranking-position{
     width: 400px;
-    height: 500px;
+    height: 330px;
     padding: 20px;
     background-color: white;
     position: absolute;
@@ -8,4 +8,34 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
+}
+
+.button-container{
+    display: flex;
+    position: absolute;
+    bottom: 0%;
+    right: 0;
+    margin-bottom: -40px;
+    justify-content: flex-end;
+}
+
+.button-ranking{
+    color: black;
+    padding: 8px 20px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.winner-container{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
+    /* color: white; */
+}
+
+.winner-container b{
+    color: red;
 }
