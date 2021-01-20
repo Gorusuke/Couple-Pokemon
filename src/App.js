@@ -7,7 +7,6 @@ import FormularioRanking from './components/FormularioRanking';
 import Ranking from './components/Ranking';
 import './App.css';
 
-
 function App() {
 
   const [intentos, setIntentos] = useState(0);
@@ -18,23 +17,27 @@ function App() {
 
 
   const playAgain = () => {
-    setSpinner(true)
     window.location.reload();
     setWin(false)
+    setSpinner(true)
+    setFormulario(false)
+    setRanking(false)
   }
 
   const mostrarFormulario = () => {
     setFormulario(true)
   }
 
-
   return (
     <div className="App">
       {ranking 
-        ? <Ranking />
+        ? <Ranking playAgain={() => playAgain()}/>
         : <>
           {formulario 
-            ? <FormularioRanking intentos={intentos} setRanking={setRanking} />
+            ? <FormularioRanking 
+              intentos={intentos} 
+              setRanking={setRanking}
+            />
             : <> 
                 {spinner 
                   ? <Spinner/> 
@@ -44,6 +47,7 @@ function App() {
                             intentos={intentos}
                             playAgain={() => playAgain()}
                             mostrarFormulario={() => mostrarFormulario()}
+                            setRanking={setRanking}
                           />
                         : <>
                             <Header intentos={intentos} />

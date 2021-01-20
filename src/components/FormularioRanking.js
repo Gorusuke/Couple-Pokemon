@@ -1,19 +1,35 @@
 import React from 'react';
 import './FormularioRanking.css';
 
-const FormularioRanking = ({intentos, setRanking}) => {
+const FormularioRanking = ({intentos, setRanking, setArreglo}) => {
 
+   
     const authentication = (e) => {
 		e.preventDefault();
-		const data = {
+        let data = {
             "nombre": e.target.nombre.value,
             "intentos": intentos
         }
-        // console.info(data)
-        localStorage.setItem('nombre', data.nombre)
-        localStorage.setItem('intentos', data.intentos)
+        addlocalStorage(data);
         setRanking(true)
-	}
+    }
+
+    const addlocalStorage = (data) => {
+        let dataBase;
+        dataBase = getLocalStorage();
+        dataBase.push(data)
+        localStorage.setItem('ranking', JSON.stringify(dataBase))
+    }
+    
+    const getLocalStorage = () => {
+        let info;
+        if(localStorage.getItem('ranking') === null){
+            info = [];
+        } else {
+            info = JSON.parse(localStorage.getItem('ranking'));
+        }
+        return info;
+    }
 
     return (
         <div>

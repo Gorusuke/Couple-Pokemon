@@ -45,7 +45,7 @@ const Tablero = ({intentos, setIntentos, setWin, setSpinner}) => {
         if(shuffleArray(images)){
             setSpinner(false)
         }
-    }, [])
+    }, [setSpinner])
 
     useEffect(() => {
         checkForMatch();
