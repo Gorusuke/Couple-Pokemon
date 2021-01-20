@@ -1,7 +1,7 @@
 import React from 'react';
 import './FormularioRanking.css';
 
-const FormularioRanking = ({intentos, setRanking, setArreglo}) => {
+const FormularioRanking = ({intentos, setRanking}) => {
 
    
     const authentication = (e) => {
@@ -30,6 +30,7 @@ const FormularioRanking = ({intentos, setRanking, setArreglo}) => {
         }
         return info;
     }
+
 
     return (
         <div>

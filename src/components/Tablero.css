@@ -32,3 +32,12 @@
         transform: rotate(360deg);
     }
 }
+
+
+@media(max-width: 425px){
+
+    .table{
+        margin-bottom: 1rem;
+    }
+
+}

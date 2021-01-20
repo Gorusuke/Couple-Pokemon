@@ -1,12 +1,12 @@
 import React from 'react';
 import './Header.css'
 
-const Header = ({intentos}) => {
+const Header = ({intentos, playAgain}) => {
     return (
         <header>
-            <div>
+            <div className="reset-button">
                 <button
-                    onClick={() => window.location.reload()}
+                    onClick={playAgain}
                     className="button-reset"
                 >Reiniciar</button>
             </div>

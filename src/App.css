@@ -13,3 +13,21 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+@media(max-width: 768px){
+
+    body{
+        margin-top: 2rem;       
+        padding: 0 20px;
+    }
+
+}
+
+
+@media(max-width: 425px){
+
+    body{
+        margin-top: 2rem;       
+        padding: 0 20px;
+    }
+
+}

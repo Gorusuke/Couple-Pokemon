@@ -38,7 +38,7 @@ const Card = ({number, pokemon, flipCard, unflippedCards, disabledCards, win}) =
                 isFlipped={isFlipped}
                 // disabled={true}
             >
-                <div className="front">{name}</div>
+                <div className="front"></div>
                 <div className="back">
                     <img src={image} className="img" alt={name}/>
                 </div>

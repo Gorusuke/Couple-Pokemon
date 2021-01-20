@@ -31,3 +31,61 @@
 .img{
     width: 100%;
 }
+
+@media(max-width: 1024px){
+
+    .carta{
+        width: 85px;
+        height: 85px;
+        margin: 5px;
+    }
+
+    .front{
+        width: 85px;
+        height: 85px;
+    }
+    
+    .back{
+        width: 85px;
+        height: 85px;
+    }
+}
+
+@media(max-width: 768px){
+
+    .carta{
+        width: 70px;
+        height: 70px;
+        margin: 5px;
+    }
+
+    .front{
+        width: 70px;
+        height: 70px;
+    }
+    
+    .back{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media(max-width: 425px){
+
+    .carta{
+        width: 58px;
+        height: 58px;
+        margin: 4px 3px;
+    }
+
+    .front{
+        width: 58px;
+        height: 58px;
+    }
+    
+    .back{
+        width: 58px;
+        height: 58px;
+    }
+
+}

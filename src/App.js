@@ -10,7 +10,7 @@ import './App.css';
 function App() {
 
   const [intentos, setIntentos] = useState(0);
-  const [win, setWin] = useState(true);
+  const [win, setWin] = useState(false);
   const [spinner, setSpinner] = useState(false);
   const [formulario, setFormulario] = useState(false);
   const [ranking, setRanking] = useState(false);
@@ -50,7 +50,7 @@ function App() {
                             setRanking={setRanking}
                           />
                         : <>
-                            <Header intentos={intentos} />
+                            <Header intentos={intentos} playAgain={() => playAgain()}/>
                             <Tablero
                               intentos={intentos}
                               setIntentos={setIntentos}

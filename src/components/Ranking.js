@@ -6,70 +6,60 @@ import './Ranking.css'
 const Ranking = ({playAgain}) => {
     
     const [arreglos, setArreglos] = useState([]);
-    const [rank, setRank] = useState([])
+    const [blank, setBlank] = useState(false);
 
-    
+
 
     useEffect(() => {
-        rankeando(JSON.parse(localStorage.getItem('ranking')))
-        // limits(rank);
+        limits(JSON.parse(localStorage.getItem('ranking')));
     }, [])
 
-    const rankeando = (list) => {
-        const ranked = list.sort(function(x, y){
-            return y.intentos - x.intentos;
+    const limits = (arr) => {
+        if(arr === null){
+            setBlank(true)
+            return;
+        }
+
+        let ranked = arr.sort(function(x, y){
+            return x.intentos - y.intentos;
         })
-        setRank(ranked)   
+
+        // let items = []
+
+        if(ranked.length >= 11) {
+            ranked.splice(ranked.length - 1, 1)
+            // items.push(item)
+        }
+
+        setArreglos(ranked)
     }
 
-    // const limits = (arr) => {
-    //     let items = []
-    //     while (items.length < 10) {
-    //         const item = arr.splice(arr, 1)
-    //         items.push(item)
-    //     }
-    //     setArreglos(items)
-    // }
+    console.info(arreglos)
 
-    console.info(rank)
-    // console.info(arreglos)
-    
-    // console.info(rankings)
-    // const {nombre, intentos} = data;
-
-    // const elements = (nombre, intentos) => {
-    //     const container = document.getElementById('elements-container')
-    //     const li = document.createElement('li')
-    //     const span = document.createElement('span')
-    //     li.innerHTML = nombre;
-    //     span.innerHTML = intentos;
-    //     li.appendChild(container);
-    //     span.appendChild(container);
-    // }
-
-    // elements(data.nombre, data.intentos)
-    // const arreglo = localStorage.getItem('ranking').split(',');
-    // const arreglos = JSON.parse(localStorage.getItem('ranking'))
-    // console.info(JSON.parse(localStorage.getItem('ranking')).reverse())
-    
     return (
         <div className="ranking-position">
-            <div>
-                <ul>
-                    {rank.map((arreglo, i) => 
-                        <ListaRankings
-                            key={i}
-                            arreglo={arreglo}
-                        />
-                    )}
-                </ul>
-            </div>
-            <div className="button-container">
-                <button
-                    onClick={playAgain}
-                    className="button-ranking"                    
-                >Salir</button> 
-            </div>
+            {blank 
+                ?   <h2>No hay ningún resultado aun</h2>
+                :   <div>
+                        <h2>Ranking De Los Mejores</h2>
+                        <ul>
+                            {arreglos.map((arreglo, i) => 
+                                <ListaRankings
+                                    key={i}
+                                    arreglo={arreglo}
+                                    number={i}
+                                />
+                            )}
+                        </ul>
+                    </div>
+            }
+                <div className="button-container">
+                    <button
+                        onClick={playAgain}
+                        className="button-ranking"                    
+                    >Salir</button> 
+                </div>
+            
         </div>
         
     )

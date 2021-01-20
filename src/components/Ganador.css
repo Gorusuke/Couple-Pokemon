@@ -64,3 +64,27 @@
     margin-right: 0;
     padding: 8px 20px;
 }
+
+@media(max-width: 768px){
+
+    .button{
+        font-size: 12px;
+        margin: 8px 20px;
+        padding: 8px 10px;    
+    }
+  
+}
+
+@media(max-width: 425px){
+
+    .modal{
+        width: 75vw;
+    }
+
+    .button{
+        font-size: 11px;
+        margin: 8px 5px;
+        padding: 8px;    
+    }
+
+}
