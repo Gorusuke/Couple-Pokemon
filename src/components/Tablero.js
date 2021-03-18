@@ -6,7 +6,6 @@ import './Tablero.css'
 
 const Tablero = ({intentos, setIntentos, setWin, setSpinner}) => {
 
-	// const [barajas, setBarajas] = useState([]);
 	const [baraja, setBaraja] = useState([]);
 	const [firstCard, setFirstCard] = useState({});
 	const [secondCard, setSecondCard] = useState({});

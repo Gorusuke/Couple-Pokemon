@@ -24,15 +24,6 @@
     justify-content: flex-end;
 }
 
-.button-ranking{
-    color: black;
-    padding: 8px 20px;
-    font-weight: bold;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 8px;
-}
-
 .winner-container{
     display: flex;
     justify-content: space-between;

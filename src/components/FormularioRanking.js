@@ -4,27 +4,9 @@ import firebase from '../firebase/firebase'
 import 'firebase/firestore'
 
 
-const FormularioRanking = ({intentos, setRanking, setScore}) => {
+const FormularioRanking = ({intentos, setRanking}) => {
 
 	const db = firebase.firestore()
-
-	// useEffect(() => {
-	// 	if(db){
-	// 		const player = db
-	// 			.collection('Ranking')
-	// 			.orderBy('score', 'asc')
-	// 			.limit(100)
-	// 			.onSnapshot(querySnapshot => {
-	// 				const data = querySnapshot.docs.map(doc => ({
-	// 					...doc.data(),
-	// 					id: doc.id
-	// 				}))
-	// 				setScore(data)
-	// 		})
-	// 		return player
-	// 	}		
-	// }, [db, setScore])
-
    
 	const authentication = (e) => {
 		e.preventDefault();
@@ -39,28 +21,7 @@ const FormularioRanking = ({intentos, setRanking, setScore}) => {
 			})
 		}
 		setRanking(true)
-		// addlocalStorage(data);
 	}
-
-	// console.info({score})
-
-	// const addlocalStorage = (data) => {
-	// 	let dataBase;
-	// 	dataBase = getLocalStorage();
-	// 	dataBase.push(data)
-	// 	localStorage.setItem('ranking', JSON.stringify(dataBase))
-	// }
-	
-	// const getLocalStorage = () => {
-	// 	let info;
-	// 	if(localStorage.getItem('ranking') === null){
-	// 			info = [];
-	// 	} else {
-	// 			info = JSON.parse(localStorage.getItem('ranking'));
-	// 	}
-	// 	return info;
-	// }
-
 
 	return (
 		<div>
@@ -85,7 +46,7 @@ const FormularioRanking = ({intentos, setRanking, setScore}) => {
 					<div className="ranking-container">
 						<input 
 							type="submit"
-							className="button-ranking"
+							className="send-button"
 							value="Enviar"
 						/>
 					</div>

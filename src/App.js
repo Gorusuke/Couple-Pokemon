@@ -10,19 +10,21 @@ import './App.css';
 function App() {
 
   const [intentos, setIntentos] = useState(0);
-	// const [score, setScore] = useState([])
   const [win, setWin] = useState(false);
   const [spinner, setSpinner] = useState(false);
-  const [formulario, setFormulario] = useState(false);
+  const [formulario, setFormulario] = useState(true);
   const [ranking, setRanking] = useState(false);
 
 
   const playAgain = () => {
     window.location.reload();
-    setWin(false)
     setSpinner(true)
-    setFormulario(false)
+  }
+
+  const salir = () => {
+    setWin(false)
     setRanking(false)
+    setFormulario(false)
   }
 
   const mostrarFormulario = () => {
@@ -32,13 +34,12 @@ function App() {
   return (
     <div className="App">
       {ranking 
-        ? <Ranking playAgain={() => playAgain()} /*score={score}*/ />
+        ? <Ranking salir={() => salir()} />
         : <>
           {formulario 
             ? <FormularioRanking 
               intentos={intentos} 
               setRanking={setRanking}
-              // setScore={setScore}
             />
             : <> 
                 {spinner 
@@ -47,7 +48,7 @@ function App() {
                       {win 
                         ? <Ganador 
                             intentos={intentos}
-                            playAgain={() => playAgain()}
+                            salir={() => salir()}
                             mostrarFormulario={() => mostrarFormulario()}
                             setRanking={setRanking}
                           />
@@ -59,7 +60,9 @@ function App() {
                               setWin={setWin}
                               setSpinner={setSpinner}
                             />
-                            <button className="button button-2" onClick={() => setRanking(true)}>Ranking</button>
+                            <div className="home-button-container">
+                              <button className="send-button" onClick={() => setRanking(true)}>Ranking</button>
+                            </div>
                           </>
                       } 
                     </>

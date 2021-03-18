@@ -2,7 +2,7 @@ import React from 'react';
 import './Ganador.css';
 
 
-const Ganador = ({intentos, playAgain, mostrarFormulario, setRanking}) => {
+const Ganador = ({intentos, salir, mostrarFormulario, setRanking}) => {
   return (
     <div className="container">
       <div className="modal">
@@ -25,7 +25,7 @@ const Ganador = ({intentos, playAgain, mostrarFormulario, setRanking}) => {
               className="button button-2"
             >Ranking</button>
             <button 
-              onClick={playAgain}
+              onClick={salir}
               className="button"
             >Volver a Jugar</button>
           </div>                    

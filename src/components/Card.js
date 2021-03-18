@@ -1,6 +1,5 @@
 import React, {useEffect, useState } from 'react';
 import ReactCardFlip from 'react-card-flip'
-// import FlipCard from 'react-flipcard-2'
 import './Cartas.css'
 
 
@@ -36,7 +35,6 @@ const Card = ({number, pokemon, flipCard, unflippedCards, disabledCards}) => {
         <div className="carta" onClick={hasEvent ? handleClick : null}>
             <ReactCardFlip
                 isFlipped={isFlipped}
-                // disabled={true}
             >
                 <div className="front"></div>
                 <div className="back">

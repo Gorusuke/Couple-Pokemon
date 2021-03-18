@@ -6,14 +6,13 @@ import 'firebase/firestore'
 import Spinner from './Spinner';
 
 
-const Ranking = ({playAgain}) => {
+const Ranking = ({salir}) => {
 
 	const db = firebase.firestore()
     
 	const [arreglos, setArreglos] = useState([]);
 	const [blank, setBlank] = useState(false);
 	const [loading, setLoading] = useState(false)
-	// const [score, setScore] = useState([])
 
 	useEffect(() => {
 		setLoading(true)
@@ -33,11 +32,6 @@ const Ranking = ({playAgain}) => {
 			return player
 		}	
 	}, [db])
-	// useEffect(() => {
-	// 	limits(score)
-	// }, [score])
-
-	// console.info({score})
 
 	const limits = (arr) => {
 		if(arr.length === 0){
@@ -76,8 +70,8 @@ const Ranking = ({playAgain}) => {
 			}
 			<div className="button-container">
 				<button
-					onClick={playAgain}
-					className="button-ranking"                    
+					onClick={salir}
+					className="send-button"                    
 				>Salir</button> 
 			</div>      
 		</div>    
