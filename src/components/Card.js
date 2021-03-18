@@ -4,7 +4,7 @@ import ReactCardFlip from 'react-card-flip'
 import './Cartas.css'
 
 
-const Card = ({number, pokemon, flipCard, unflippedCards, disabledCards, win}) => {
+const Card = ({number, pokemon, flipCard, unflippedCards, disabledCards}) => {
     
     const {image, name} = pokemon.image;
     const [isFlipped, setIsFlipped] = useState(false)
