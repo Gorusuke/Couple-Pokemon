@@ -12,7 +12,7 @@ function App() {
   const [intentos, setIntentos] = useState(0);
   const [win, setWin] = useState(false);
   const [spinner, setSpinner] = useState(false);
-  const [formulario, setFormulario] = useState(true);
+  const [formulario, setFormulario] = useState(false);
   const [ranking, setRanking] = useState(false);
 
 
