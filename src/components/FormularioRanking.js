@@ -1,32 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './FormularioRanking.css';
-import firebase from '..firebase/firebase'
+import firebase from '../firebase/firebase'
 import 'firebase/firestore'
 
 
-const FormularioRanking = ({intentos, setRanking}) => {
+const FormularioRanking = ({intentos, setRanking, setScore}) => {
 
 	const db = firebase.firestore()
 
-	const [score, setScore] = useState([])
-
-
-	useEffect(() => {
-		if(db){
-			const player = db
-				.collection('Ranking')
-				.orderBy('score')
-				.limit(100)
-				.onSnapshot(querySnapshot => {
-					const data = querySnapshot.docs.map(doc => ({
-							...doc.data(),
-							id: doc.id
-					}))
-					setScore(data)
-			})
-			return player
-		}		
-	}, [db])
+	// useEffect(() => {
+	// 	if(db){
+	// 		const player = db
+	// 			.collection('Ranking')
+	// 			.orderBy('score', 'asc')
+	// 			.limit(100)
+	// 			.onSnapshot(querySnapshot => {
+	// 				const data = querySnapshot.docs.map(doc => ({
+	// 					...doc.data(),
+	// 					id: doc.id
+	// 				}))
+	// 				setScore(data)
+	// 		})
+	// 		return player
+	// 	}		
+	// }, [db, setScore])
 
    
 	const authentication = (e) => {
@@ -44,6 +41,8 @@ const FormularioRanking = ({intentos, setRanking}) => {
 		setRanking(true)
 		// addlocalStorage(data);
 	}
+
+	// console.info({score})
 
 	// const addlocalStorage = (data) => {
 	// 	let dataBase;
@@ -66,22 +65,22 @@ const FormularioRanking = ({intentos, setRanking}) => {
 	return (
 		<div>
 			<form 
-					onSubmit={authentication}
+				onSubmit={authentication}
 			>
 				<div className="container-ranking">
 					<div className="container-formulario">
-							<h2>Ingresa tus datos</h2>
-							<div className="container-input">
-								<label htmlFor="nombre"><b>Nombre:</b></label>
-								<input 
-									type="nombre" 
-									id="nombre" 
-									placeholder="Ingresa tu Nombre" 
-									name="nombre"
-									required 
-								/>
-							</div>
-							<p>Tu numero de intentos fueron <b>{intentos}</b></p>
+						<h2>Ingresa tus datos</h2>
+						<div className="container-input">
+							<label htmlFor="nombre"><b>Nombre:</b></label>
+							<input 
+								type="nombre" 
+								id="nombre" 
+								placeholder="Ingresa tu Nombre" 
+								name="nombre"
+								required 
+							/>
+						</div>
+						<p>Tu numero de intentos fueron <b>{intentos}</b></p>
 					</div>
 					<div className="ranking-container">
 						<input 

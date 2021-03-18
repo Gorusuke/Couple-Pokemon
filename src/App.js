@@ -10,6 +10,7 @@ import './App.css';
 function App() {
 
   const [intentos, setIntentos] = useState(0);
+	// const [score, setScore] = useState([])
   const [win, setWin] = useState(false);
   const [spinner, setSpinner] = useState(false);
   const [formulario, setFormulario] = useState(false);
@@ -31,12 +32,13 @@ function App() {
   return (
     <div className="App">
       {ranking 
-        ? <Ranking playAgain={() => playAgain()}/>
+        ? <Ranking playAgain={() => playAgain()} /*score={score}*/ />
         : <>
           {formulario 
             ? <FormularioRanking 
               intentos={intentos} 
               setRanking={setRanking}
+              // setScore={setScore}
             />
             : <> 
                 {spinner 
@@ -57,6 +59,7 @@ function App() {
                               setWin={setWin}
                               setSpinner={setSpinner}
                             />
+                            <button className="button button-2" onClick={() => setRanking(true)}>Ranking</button>
                           </>
                       } 
                     </>

@@ -3,13 +3,15 @@ import './Ranking.css'
 
 const ListaRankings = ({arreglo, number}) => {
 
-    const {nombre, intentos} = arreglo;
+	const {name, score} = arreglo;
 
-    return (
-        <div>
-            <li className="winner-container">{number + 1}. {nombre}<b>{intentos}</b></li>
-        </div>
-    );
+	return (
+		<div>
+			<li className="winner-container">
+				{number + 1}. {name}<b>{score}</b>
+			</li>
+		</div>
+	);
 }
 
 export default ListaRankings;
