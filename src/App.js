@@ -12,16 +12,19 @@ function App() {
   const [intentos, setIntentos] = useState(0);
   const [win, setWin] = useState(false);
   const [spinner, setSpinner] = useState(false);
-  const [formulario, setFormulario] = useState(false);
+  const [formulario, setFormulario] = useState(true);
   const [ranking, setRanking] = useState(false);
 
 
   const playAgain = () => {
     window.location.reload();
-    setWin(false)
     setSpinner(true)
-    setFormulario(false)
+  }
+
+  const salir = () => {
+    setWin(false)
     setRanking(false)
+    setFormulario(false)
   }
 
   const mostrarFormulario = () => {
@@ -31,7 +34,7 @@ function App() {
   return (
     <div className="App">
       {ranking 
-        ? <Ranking playAgain={() => playAgain()}/>
+        ? <Ranking salir={() => salir()} />
         : <>
           {formulario 
             ? <FormularioRanking 
@@ -45,7 +48,7 @@ function App() {
                       {win 
                         ? <Ganador 
                             intentos={intentos}
-                            playAgain={() => playAgain()}
+                            salir={() => salir()}
                             mostrarFormulario={() => mostrarFormulario()}
                             setRanking={setRanking}
                           />
@@ -57,6 +60,9 @@ function App() {
                               setWin={setWin}
                               setSpinner={setSpinner}
                             />
+                            <div className="home-button-container">
+                              <button className="send-button" onClick={() => setRanking(true)}>Ranking</button>
+                            </div>
                           </>
                       } 
                     </>
