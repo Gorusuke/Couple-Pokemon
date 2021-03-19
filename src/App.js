@@ -10,8 +10,8 @@ import './App.css';
 function App() {
 
   const [intentos, setIntentos] = useState(0);
-  const [win, setWin] = useState(false);
   const [spinner, setSpinner] = useState(false);
+  const [win, setWin] = useState(false);
   const [formulario, setFormulario] = useState(false);
   const [ranking, setRanking] = useState(false);
 
@@ -25,6 +25,7 @@ function App() {
     setWin(false)
     setRanking(false)
     setFormulario(false)
+    setIntentos(0)
   }
 
   const mostrarFormulario = () => {
